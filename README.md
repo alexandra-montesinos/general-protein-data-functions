@@ -45,3 +45,37 @@ Adds columns containing labels (names) of genes based on their regulation and qv
 | even_regulation_split | boolean | Default TRUE. Whether or not to enforce an even split of labels acros up- and down-regulated genes.|
 
 ## plot_volcano
+Create a volcano plot for log value based on a dataset.
+| Parameter | Type       | Description|
+|-----------|------------|------------|
+| data  | data.table | data to plot. Please call clean_dt or one of its variants on this data first. |
+| title | string | Title for the plot.|
+| theme | ggplot theme object | Theme to use. Default good_theme_big, as defined in this code file. |
+| ratio_cutoff | numeric | Cutoff for significant log ratio. Default 0, as is standard. |
+|add_labels_log| Boolean | whether to add gene labels to the plot based on significant log value. Default TRUE.|
+|add_labels_q | Boolean | whether to add gene labels to the plot based on significant Qvalue. Default TRUE.|
+|num_labels | numeric | number of labels to add if you are adding labels at all. Default 20. |
+
+## plot_volcano_w_agreement
+Create a volcano plot with 2 datasets, showing regulation direction agreement with color. This function is older, and therefore not quite as advanced as the basic plot_volcano() function.
+| Parameter | Type       | Description|
+|-----------|------------|------------|
+| data1  | data.table | data to plot. Please call clean_dt or one of its variants on this data first. |
+| data2 | data.table | Second data to plot. Please call clean_dt or one of its variants on this data first. |
+| title | string | Title for the plot.|
+| theme | ggplot theme object | Theme to use. Default good_theme_big, as defined in this code file. |
+|num_labels | numeric | number of labels to add if you are adding labels at all. Default 20. |
+
+## plot_volcano_2data
+Create a volcano plot with 2 datasets, coloring them differently. 
+| Parameter | Type       | Description|
+|-----------|------------|------------|
+| data1  | data.table | data to plot. Please call clean_dt or one of its variants on this data first. |
+| data1_description | string | Short description of data1 for use in the plot key.|
+| data2 | data.table | Second data to plot. Please call clean_dt or one of its variants on this data first. |
+| data2_description | string | Short description of data2 for use in the plot key.|
+| title | string | Title for the plot.|
+| theme | ggplot theme object | Theme to use. Default good_theme_big, as defined in this code file. |
+| ratio_cutoff | numeric | Cutoff for significant log ratio. Default 0, as is standard. |
+|add_labels| Boolean | whether to add gene labels to the plot. Default TRUE.|
+|num_labels | numeric | number of labels to add if you are adding labels at all. Default 20. |
