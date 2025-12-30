@@ -34,3 +34,14 @@ Standardizes names, drops unneeded columns, and filters out NaNs.
 | keep_more_significant | boolean | Whether or not to, when facing repeated genes, keep only the most significant result by Qval. If false, the first of the repeated genes is arbitrarily removed instead. KEEP THIS TO FALSE UNLESS YOU HAVE A GREAT REASON!
 |add_regulation| boolean | Default FALSE. Adds columns containing regulation information by calling find_regulation(). |
 | keep_cols | vector | names of columns to keep alongside those kept by standard.
+
+# plot_funcs.R
+## label_top
+Adds columns containing labels (names) of genes based on their regulation and qvalue. Genes without labels will have an NA in this column.
+| Parameter | Type       | Description|
+|-----------|------------|------------|
+| dt  | data.table | dt with genes and regulation info |
+| num_labels | numeric | number of genes to label in EACH GROUP of regulation and Qval. There will therefore be 2x this amount of labels total. There MAY be less total labels than this in the returned datatable if they are removed thanks to repeat labels, they have a broken label, or if you entered an uneven number of labels. |
+| even_regulation_split | boolean | Default TRUE. Whether or not to enforce an even split of labels acros up- and down-regulated genes.|
+
+## plot_volcano
