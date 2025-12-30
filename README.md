@@ -79,3 +79,19 @@ Create a volcano plot with 2 datasets, coloring them differently.
 | ratio_cutoff | numeric | Cutoff for significant log ratio. Default 0, as is standard. |
 |add_labels| Boolean | whether to add gene labels to the plot. Default TRUE.|
 |num_labels | numeric | number of labels to add if you are adding labels at all. Default 20. |
+
+# PathwayAnalysisFunction_V3.R
+## pathway_analysis
+Runs a pathway analysis on given datatable containing gene expression data. Filters for significantly upregulated genes and performs Gene Ontology (GO) enrichment analysis. Returns a plotted linear analysis.
+| Parameter | Type       | Description |
+|-----------|------------|------------|
+| gene_list  | list | list of genes to perform analysis on, should be in SYMBOL form. | 
+| universe_gene_list | list | list of genes to compare against--the baseline of all genes that could've been selected, also in SYMBOL form.|
+|OrgDb | string | OrgDb to use (e.g. "org.Hs.eg.db", "org.Mm.eg.db")|
+|keyType | string | key type for gene list (e.g. "SYMBOL" (gene names), "UNIPROT" (uniprot ids)). Should be the type of the genes in the passed gene lists. Default "SYMBOL"|
+| should_filter | Boolean | bool, whether or not to use gofilter()--this should usually be TRUE. Default TRUE.|
+|filter_level| numeric | numeric, filter level to pass into gofilter(). The higher the level, the more specific the pathways, located deeper in the hierarchy. 2-3 = Very broad, high-level terms, 5+ = more specific terms that represent detailed biological processes or functions. Default 5. |
+| title | String | Title to give the plot. Default "UNNAMED"|
+| theme | ggplot theme object | Theme to use. Default good_theme_big, as defined in plot_funcs.R. |
+|num_categories| numeric | Number of categories to show on the plot.|
+| filter_type | string | metric to use for filtering out insignificant pathways ("pvalue", "p.adjust", or "qvalue")|
