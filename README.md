@@ -112,7 +112,8 @@ Run a pathway analysis on two gene lists, then create a plot including ONLY sign
 |num_categories| numeric | Number of categories to show on the pathway plots for each individual gene list.|
 | num_categories_comp | numeric | Number of categories to show on the comparison plot.|
 
-## num_categories_comp
+## plot_pathway_analysis
+Plots a oathway analysis result.
 | Parameter | Type       | Description |
 |-----------|------------|------------|
 | dt  | data.table | pathway analysis result table, as generated in pathway_analysis(). | 
@@ -120,3 +121,10 @@ Run a pathway analysis on two gene lists, then create a plot including ONLY sign
 |theme| ggplot theme| theme for plot.|
 |num_categories|numeric|number of categories to display.|
 |filter_type| string| type of value to use for filter (e.g. "p.adjust", "qvalue", etc)|
+
+## geneID_as_list
+Converts a series of gene IDs from a pathway in a pathway analysis result table to a list, rather than one continuous string.
+| Parameter | Type       | Description |
+|-----------|------------|------------|
+| dt  | data.table | pathway analysis result table, as generated in pathway_analysis(). | 
+|pathway| string| pathway to convert the gene list of.|
